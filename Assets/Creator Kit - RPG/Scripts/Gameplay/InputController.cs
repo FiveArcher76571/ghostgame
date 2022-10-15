@@ -85,6 +85,14 @@ namespace RPGM.UI
             else {
                 model.player.nextMoveCommand = Vector3.zero;
             }
+
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                stepSize = 0.2f;
+            }
+            else {
+                stepSize = 0.1f;
+            }
+
         }
     }
 }
