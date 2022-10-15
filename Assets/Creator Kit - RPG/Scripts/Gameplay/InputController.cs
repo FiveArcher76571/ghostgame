@@ -1,6 +1,7 @@
 using RPGM.Core;
 using RPGM.Gameplay;
 using UnityEngine;
+using System;
 
 namespace RPGM.UI
 {
@@ -39,9 +40,9 @@ namespace RPGM.UI
         void DialogControl()
         {
             model.player.nextMoveCommand = Vector3.zero;
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.A))
                 model.dialog.FocusButton(-1);
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
                 model.dialog.FocusButton(+1);
             if (Input.GetKeyDown(KeyCode.Space))
                 model.dialog.SelectActiveButton();
@@ -49,16 +50,41 @@ namespace RPGM.UI
 
         void CharacterControl()
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-                model.player.nextMoveCommand = Vector3.up * stepSize;
-            else if (Input.GetKey(KeyCode.DownArrow))
-                model.player.nextMoveCommand = Vector3.down * stepSize;
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            double temp = 1/Math.Sqrt(2);
+            float root2;
+            root2 = (float)temp;
+            if (Input.GetKey(KeyCode.W)) {
+                if (Input.GetKey(KeyCode.D)) {
+                    model.player.nextMoveCommand = (Vector3.up + Vector3.right) * root2 * stepSize;
+                }
+                else if (Input.GetKey(KeyCode.A)) {
+                    model.player.nextMoveCommand = (Vector3.up + Vector3.left) * root2 * stepSize;
+                }
+                else {
+                    model.player.nextMoveCommand = Vector3.up * stepSize;
+                }
+            }
+            else if (Input.GetKey(KeyCode.S)) {
+                if (Input.GetKey(KeyCode.D)) {
+                    model.player.nextMoveCommand = (Vector3.down + Vector3.right) * root2 * stepSize;
+                }
+                else if (Input.GetKey(KeyCode.A)) {
+                    model.player.nextMoveCommand = (Vector3.down + Vector3.left) * root2 * stepSize;
+                }
+                else {
+                    model.player.nextMoveCommand = Vector3.down * stepSize;
+                }
+            }
+
+            else if (Input.GetKey(KeyCode.A)) {
                 model.player.nextMoveCommand = Vector3.left * stepSize;
-            else if (Input.GetKey(KeyCode.RightArrow))
+            }
+            else if (Input.GetKey(KeyCode.D)) {
                 model.player.nextMoveCommand = Vector3.right * stepSize;
-            else
+            }                
+            else {
                 model.player.nextMoveCommand = Vector3.zero;
+            }
         }
     }
 }
