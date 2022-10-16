@@ -21,7 +21,6 @@ public class LookAround : MonoBehaviour
     public AudioSource alert;
     public UnityEngine.Rendering.Universal.Light2D light;
     public GameObject graveskeeper;
-    public Transform keepertarget;
     //public Component mainCamController;
 
     // Start is called before the first frame update
