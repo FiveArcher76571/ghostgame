@@ -36,6 +36,7 @@ namespace RPGM.Gameplay
                 {
                     musicThing.GetComponent<AudioSource>().clip = puzzle;
                     musicThing.GetComponent<AudioSource>().Play();
+                    musicThing.GetComponent<AudioSource>().volume = 1f;
                 }
                 
             }
