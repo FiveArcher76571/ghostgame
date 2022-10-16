@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using RPGM.Gameplay;
 using UnityEngine;
 using UnityEngine.U2D;
+using pathf = Pathfinding;
 
-namespace RPGM.Gameplay
-{
+
+namespace RPGM.Gameplay {
     /// <summary>
     /// A simple controller for animating a 4 directional sprite using Physics.
     /// </summary>
@@ -21,6 +22,10 @@ namespace RPGM.Gameplay
         new Rigidbody2D rigidbody2D;
         SpriteRenderer spriteRenderer;
         PixelPerfectCamera pixelPerfectCamera;
+
+        public GameObject graveskeeper;
+        public Collider2D keepercol;
+        public GameObject graveyard;
 
         enum State
         {
@@ -91,6 +96,12 @@ namespace RPGM.Gameplay
             rigidbody2D = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             pixelPerfectCamera = GameObject.FindObjectOfType<PixelPerfectCamera>();
+        }
+
+        void OnTriggerEnter2D(Collider2D col) {
+            if (col == keepercol) {
+                graveskeeper.GetComponent<pathf.AIDestinationSetter>().target = graveyard.transform;
+            }
         }
     }
 }

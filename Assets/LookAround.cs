@@ -71,10 +71,6 @@ public class LookAround : MonoBehaviour
         transform.rotation = Quaternion.Slerp(from, to, timeCount);
         timeCount = timeCount + Time.deltaTime;
         counter++;
-
-
-
-        
     }
 
     void OnTriggerEnter2D(Collider2D col)
