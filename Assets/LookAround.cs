@@ -15,6 +15,8 @@ public class LookAround : MonoBehaviour
     public float timeStopCounter;
     public bool beingTriggered;
     public AudioSource alert;
+    public UnityEngine.Rendering.Universal.Light2D light;
+    //public Component mainCamController;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,8 @@ public class LookAround : MonoBehaviour
                 Time.timeScale = 1;
                 timeStopCounter = 0;
                 //GetComponent<Collider2D>().enabled = true;
+                light.enabled = false;
+                enabled = false;
             }
 
         }
@@ -75,6 +79,7 @@ public class LookAround : MonoBehaviour
         {
             beingTriggered = true;
             alert.Play();
+            
             Time.timeScale = 0;
             timeStopCounter = 1;
             GetComponent<Collider2D>().enabled = false;
