@@ -42,7 +42,8 @@ public class HideController : MonoBehaviour, IPointerClickHandler
                             GetComponent<SpriteRenderer>().sprite = hidden;
                             player.GetComponent<Rigidbody2D>().drag = 1000;
                             player.GetComponent<CharacterController2D>().enabled = false;
-                        }
+                            player.GetComponent<CapsuleCollider2D>().enabled = false;
+                    }
 
                         if (counter >= 1)
                     {
@@ -68,6 +69,7 @@ public class HideController : MonoBehaviour, IPointerClickHandler
                     GetComponent<SpriteRenderer>().sprite = notHidden;
                     player.GetComponent<Rigidbody2D>().drag = 0;
                     player.GetComponent<CharacterController2D>().enabled = true;
+                    player.GetComponent<CapsuleCollider2D>().enabled = true;
                 }
             }
 
