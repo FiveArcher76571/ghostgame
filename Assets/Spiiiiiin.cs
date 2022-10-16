@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Spiiiiiin : MonoBehaviour
 {
     Vector3 spinVec = new Vector3(0, 0, 1);

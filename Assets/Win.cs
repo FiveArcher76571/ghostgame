@@ -11,6 +11,8 @@ namespace RPGM.Gameplay
         // Start is called before the first frame update
         public GameObject kid;
         public Collider2D playerCol;
+        public GameObject musicThing;
+        public AudioClip puzzle;
         void Start()
         {
 
@@ -24,10 +26,20 @@ namespace RPGM.Gameplay
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision == playerCol && kid.GetComponent<ScareController>().spooked)
+            if (collision == playerCol)
             {
-                SceneManager.LoadScene("Win!", LoadSceneMode.Single);
+                if (kid.GetComponent<ScareController>().spooked)
+                        {
+                    SceneManager.LoadScene("Win!", LoadSceneMode.Single); 
+                }
+                else
+                {
+                    musicThing.GetComponent<AudioSource>().clip = puzzle;
+                    musicThing.GetComponent<AudioSource>().Play();
+                }
+                
             }
+            
         }
     }
 }
