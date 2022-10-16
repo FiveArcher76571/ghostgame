@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using pathf = Pathfinding;
 using RPGM.Gameplay;
 using UnityEngine.EventSystems;
 
@@ -30,6 +31,14 @@ namespace RPGM.Gameplay
         // Update is called once per frame
         void Update()
         {
+            if (spooked)
+            {
+                GetComponent<pathf.AIPath>().enabled = true;
+            }
+            else
+            {
+                GetComponent<pathf.AIPath>().enabled = false;
+            }
             distance = Vector3.Distance(transform.position, player.transform.position);
             if (Input.GetKeyDown(KeyCode.E) && !spooked)//&& !EventSystem.current.IsPointerOverGameObject())
             {

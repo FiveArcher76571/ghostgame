@@ -55,5 +55,7 @@ namespace Pathfinding {
 
 			if (search) agent.SearchPath();
 		}
-	}
+
+        
+    }
 }
