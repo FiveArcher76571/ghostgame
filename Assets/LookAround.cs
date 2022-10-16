@@ -22,6 +22,8 @@ public class LookAround : MonoBehaviour
     public UnityEngine.Rendering.Universal.Light2D light;
     public GameObject graveskeeper;
     public Rigidbody2D rb;
+        public GameObject musicThing;
+        public AudioClip graveKeeperCalled;
         private Vector2 stop;
         public bool searchMode;
 
@@ -109,7 +111,9 @@ public class LookAround : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
 
             graveskeeper.GetComponent<AIDestinationSetter>().target = transform;
-        }
+                musicThing.GetComponent<AudioSource>().clip = graveKeeperCalled;
+                musicThing.GetComponent<AudioSource>().Play();
+            }
 
             
 
