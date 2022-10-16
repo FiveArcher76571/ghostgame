@@ -27,9 +27,9 @@ public class HideController : MonoBehaviour, IPointerClickHandler
     void Update()
     {
             distance = Vector3.Distance(transform.position, player.transform.position);
-            if (Input.GetMouseButton(0) )//&& !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButton(0) || Input.GetKey("space"))//&& !EventSystem.current.IsPointerOverGameObject())
             {
-                Debug.Log("MouseDown");
+                Debug.Log("MouseDown");//adlfajf
                 //Vector2 mouseWorldPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
                 //RaycastHit2D hitCheck = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
                     if (distance < 0.5f)
