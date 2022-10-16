@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace Pathfinding
+{
+    
+
 
 public class LookAround : MonoBehaviour
 {
@@ -16,6 +20,7 @@ public class LookAround : MonoBehaviour
     public bool beingTriggered;
     public AudioSource alert;
     public UnityEngine.Rendering.Universal.Light2D light;
+    public GameObject graveskeeper;
     //public Component mainCamController;
 
     // Start is called before the first frame update
@@ -83,9 +88,12 @@ public class LookAround : MonoBehaviour
             Time.timeScale = 0.0f;
             timeStopCounter = 1;
             GetComponent<Collider2D>().enabled = false;
-            
+
+            graveskeeper.GetComponent<AIDestinationSetter>().target = transform;
         }
 
         
     }
+}
+
 }
