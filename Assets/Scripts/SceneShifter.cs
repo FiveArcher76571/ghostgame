@@ -20,4 +20,7 @@ public class SceneShifter : MonoBehaviour
     public void to_exit() {
         Application.Quit();
     }
+    public void to_win() {
+        SceneManager.LoadScene("Win!", LoadSceneMode.Single);
+    }
 }
