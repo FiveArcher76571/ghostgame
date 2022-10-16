@@ -46,7 +46,7 @@ public class LookAround : MonoBehaviour
 
     private void Update()
     {
-        if(searchMode && timeStopCounter > 0)
+        if(timeStopCounter > 0)
         {
             timeStopCounter += Time.unscaledDeltaTime;
             if (timeStopCounter > 1.5)
