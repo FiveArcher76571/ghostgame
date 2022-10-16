@@ -12,6 +12,11 @@ public class HideController : MonoBehaviour, IPointerClickHandler
         public GameObject player;
         public Camera mainCam;
         private float distance;
+        public Sprite hidden;
+        public Sprite hidden2;
+        public Sprite notHidden;
+        public float counter;
+
         Vector3 stop;// = new Vector3(0, 0, 0);
         void Start()
         {
@@ -31,10 +36,28 @@ public class HideController : MonoBehaviour, IPointerClickHandler
                     {
 
                         Debug.Log("Hiding");
-                        player.GetComponent<SpriteRenderer>().enabled = false;
-                        player.GetComponent<Rigidbody2D>().drag = 1000;
-                        player.GetComponent<CharacterController2D>().enabled = false;
+                        if (GetComponent<SpriteRenderer>().sprite != hidden && GetComponent<SpriteRenderer>().sprite != hidden2)
+                        {
+                            player.GetComponent<SpriteRenderer>().enabled = false;
+                            GetComponent<SpriteRenderer>().sprite = hidden;
+                            player.GetComponent<Rigidbody2D>().drag = 1000;
+                            player.GetComponent<CharacterController2D>().enabled = false;
+                        }
+
+                        if (counter >= 1)
+                    {
+                        if (GetComponent<SpriteRenderer>().sprite = hidden)
+                        {
+                            GetComponent<SpriteRenderer>().sprite = hidden2;
+                        }
+                        if (GetComponent<SpriteRenderer>().sprite = hidden2)
+                        {
+                            GetComponent<SpriteRenderer>().sprite = hidden;
+                        }
+                        counter = 0;
                     }
+                    counter += Time.deltaTime;
+                }
             }
             else
             {
@@ -42,11 +65,22 @@ public class HideController : MonoBehaviour, IPointerClickHandler
                 {
                     Debug.Log("Not Hiding");
                     player.GetComponent<SpriteRenderer>().enabled = true;
+                    GetComponent<SpriteRenderer>().sprite = notHidden;
                     player.GetComponent<Rigidbody2D>().drag = 0;
                     player.GetComponent<CharacterController2D>().enabled = true;
                 }
             }
+
+            if(distance >= 0.5f)
+            {
+                GetComponent<SpriteRenderer>().sprite = notHidden;
+            }
+
+
+            
     }
+    
+
 
         public void OnPointerClick(PointerEventData eventData)
         {
