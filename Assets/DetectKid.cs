@@ -7,6 +7,7 @@ public class DetectKid : MonoBehaviour
 {
 
     public Collider2D child;
+    public UnityEngine.Rendering.Universal.Light2D searchLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class DetectKid : MonoBehaviour
     {
         if (collision == child)
         {
+            searchLight.GetComponent<pathf.LookAround>().searchMode = false;
             GetComponent<pathf.AIPath>().enabled = true;
         }
     }
