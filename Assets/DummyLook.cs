@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using rp = RPGM.Gameplay;
 namespace Pathfinding
 {
     
@@ -20,6 +21,8 @@ public class DummyLook : MonoBehaviour
     public bool beingTriggered;
     public AudioSource alert;
     public GameObject graveskeeper;
+    public GameObject musicThing;
+    public AudioClip graveKeeperCalled;
 
 
         public Vector2 parentVelocity;
@@ -90,6 +93,8 @@ public class DummyLook : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
 
             graveskeeper.GetComponent<AIDestinationSetter>().target = transform;
+                musicThing.GetComponent<AudioSource>().clip = graveKeeperCalled;
+                musicThing.GetComponent<AudioSource>().Play();
         }
 
             
