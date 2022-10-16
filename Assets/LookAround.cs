@@ -80,7 +80,7 @@ public class LookAround : MonoBehaviour
             beingTriggered = true;
             alert.Play();
             
-            Time.timeScale = 0;
+            Time.timeScale = 0.0f;
             timeStopCounter = 1;
             GetComponent<Collider2D>().enabled = false;
             
