@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Creator Kit - RPG/Scenes/BlankScene 1.unity
-    guid: 30839d5427b684a809b3f13fa94e3b0c
+    path: Assets/Creator Kit - RPG/Scenes/BlankScene.unity
+    guid: 6f7f323fbafea47d6b437a00d0d10d3d
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 7f6b4217bf0ab6c4e830f53b6c84b54a
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: d0a81d35f0fdd684793b38387f32b02e
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Tutorial and Story.unity
+    guid: ca049e684ce42854780bf85eb61508e6
   m_configObjects: {}
